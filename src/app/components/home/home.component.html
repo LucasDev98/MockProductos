@@ -1,0 +1,22 @@
+
+<h1 class="text-center">All Products</h1>
+<h2 class="mt-2">Filter By Category</h2>
+<app-spinner *ngIf="spinner"></app-spinner>
+<select name="category" id="category" *ngIf="!spinner">
+    <option  (click)="getProductByCategory('')" selected>--Ver Todas las categorias--</option>
+    <option   (click)="getProductByCategory( item )"  *ngFor="let item of this.stockGDM.categorys" [value]="item">{{ item }}</option>
+</select>
+
+
+<div class="card-columns mt-3" *ngIf="!spinner">
+
+  <app-card [products]="products" [page]="page"> </app-card>
+
+</div>
+<nav aria-label="Page navigation example" *ngIf="!spinner">
+  <ul class="pagination">
+    <button class="page-item page-link" (click)="prev()" [disabled]="page == 0">Previous</button>
+    <button class="page-item page-link" (click)="next()" [disabled]="page >= products.length">Next</button>
+  </ul>
+</nav>
+

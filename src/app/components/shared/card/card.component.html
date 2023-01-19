@@ -1,0 +1,8 @@
+<div class="card"*ngFor="let product of products | paginator : page ">
+  <img [src]="product.product_img" class="card-img-top" [alt]="product.product_name">
+  <div class="card-body">
+    <h5 class="card-title">{{ product.product_name }}</h5>
+    <p class="card-text"><span class="badge badge-primary">$ {{ product.price }}</span> </p>
+    <p class="card-text"><small class="text-muted">PLU: {{ product.plu }} Category: {{ product.product_category }}</small></p>
+  </div>
+</div>

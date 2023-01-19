@@ -1,0 +1,19 @@
+<div class="container">
+
+<app-spinner *ngIf="spinner"> </app-spinner>
+
+<div class="alert alert-danger" *ngIf=" existeProducto  ">
+  El producto solicitado no existe o no se encuentra registrado.
+</div>
+</div>
+<div class="card-columns" *ngIf="!spinner">
+  <div class="card" *ngIf="!existeProducto">
+    <img [src]="product[0].product_img" class="card-img-top" [alt]="product[0].product_name">
+    <div class="card-body">
+      <h5 class="card-title">{{ product[0].product_name }}</h5>
+      <p class="card-text"><span class="badge badge-primary">$ {{ product[0].price}}</span> </p>
+      <p class="card-text"><small class="text-muted">PLU: {{ product[0].plu }} Category: {{ product[0].product_category }}</small></p>
+    </div>
+  </div>
+
+</div>
